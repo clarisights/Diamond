@@ -82,7 +82,7 @@ def collector_process(collector, metric_queue, log):
             signal.alarm(0)
 
         except SIGALRMException:
-            log.error('Took too long to run! Killed!')
+            log.error('Took too long to run! Killed after %s seconds with min_collection_time of %s seconds!', max_time, min_collection_time)
 
             # Adjust  the stagger_offset to allow for more time to run the
             # collector
